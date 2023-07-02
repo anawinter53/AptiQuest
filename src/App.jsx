@@ -16,37 +16,37 @@ export default function App() {
     {
       id: 2,
       img_link: 'src/assets/arrow-test-2.png',
-      correct_keycode: 'ArrowLeft'
+      correct_response: 'ArrowLeft'
     },
     {
       id: 3,
       img_link: 'src/assets/arrow-test-3.png',
-      correct_keycode: 'ArrowRight'
+      correct_response: 'ArrowRight'
     },
     {
       id: 4,
       img_link: 'src/assets/arrow-test-4.png',
-      correct_keycode: 'ArrowLeft'
+      correct_response: 'ArrowLeft'
     },
     {
       id: 5,
       img_link: 'src/assets/arrow-test-5.png',
-      correct_keycode: 'ArrowRight'
+      correct_response: 'ArrowRight'
     },
     {
       id: 6,
       img_link: 'src/assets/arrow-test-6.png',
-      correct_keycode: 'ArrowLeft'
+      correct_response: 'ArrowLeft'
     },
     {
       id: 7,
       img_link: 'src/assets/arrow-test-7.png',
-      correct_keycode: 'ArrowRight'
+      correct_response: 'ArrowRight'
     },
     {
       id: 8,
       img_link: 'src/assets/arrow-test-8.png',
-      correct_keycode: 'ArrowRight'
+      correct_response: 'ArrowRight'
     }
   ]
 
@@ -56,21 +56,25 @@ export default function App() {
   let score = 0;
 
   useKeypress(['ArrowLeft', 'ArrowRight'], (event) => {
-    if(event.key == 'ArrowLeft' | event.key == 'ArrowRight' & completed == false & i <= 6) {
-      (event.key == arrowTests[i].correct_keycode) ? score ++ : score + 0;
+    if(event.key == 'ArrowLeft' | event.key == 'ArrowRight' & completed == false & i < 7) {
+      console.log(arrowTests[i].correct_response);
+      (event.key == arrowTests[i].correct_response) ? score ++ : score + 0;
       console.log('the current score is', score)
       console.log(event.key)
       i ++;
       console.log(i)
-      $('.test-img').attr('src', arrowTests[i].img_link)
-    } else {
-      console.log(completed)
+      $('.test-img').attr('src', arrowTests[i].img_link) 
+    } else if (i == 7) {
+      (event.key == arrowTests[i].correct_response) ? score ++ : score + 0;
+      console.log('the current score is', score)
+      console.log(event.key)
       setCompleted(true)
-      console.log(completed)
       console.log(score/8 * 100)
       localStorage.setItem('percentage', (score/8 * 100))
     }
   });
+
+  
 
   let percentage = parseInt(localStorage.getItem('percentage'))
 
