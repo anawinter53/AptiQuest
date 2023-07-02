@@ -57,19 +57,12 @@ export default function App() {
 
   useKeypress(['ArrowLeft', 'ArrowRight'], (event) => {
     if(event.key == 'ArrowLeft' | event.key == 'ArrowRight' & completed == false & i < 7) {
-      console.log(arrowTests[i].correct_response);
       (event.key == arrowTests[i].correct_response) ? score ++ : score + 0;
-      console.log('the current score is', score)
-      console.log(event.key)
       i ++;
-      console.log(i)
       $('.test-img').attr('src', arrowTests[i].img_link) 
     } else if (i == 7) {
       (event.key == arrowTests[i].correct_response) ? score ++ : score + 0;
-      console.log('the current score is', score)
-      console.log(event.key)
       setCompleted(true)
-      console.log(score/8 * 100)
       localStorage.setItem('percentage', (score/8 * 100))
     }
   });
