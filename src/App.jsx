@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import Modal from 'react-modal';
+import { useEffect, useState } from 'react';
+import Popup from "reactjs-popup"
 import { AiFillInfoCircle } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import './App.css'
 
 export default function App() {
-
-  $('.result-screen').hide();
 
   const arrowTests = [
     {
@@ -54,46 +52,31 @@ export default function App() {
   const [ completed, setCompleted ] = useState(false)
 
   if (completed == true) {
-    // $('.popup').attr('open', 'true')
-    $('.result-screen').show()
+    $('.popup').attr('open', 'true')
   } 
 
   let i = 0;
   let score = 0;
 
-  // function checkAnswer() {
-  //   if ()
-  // }
 
   window.addEventListener('keydown', function(event) {
     const key = event.key; 
-    if(key == 'ArrowLeft' | key == 'ArrowRight') {
+    console.log(score)
+    if(key == 'ArrowLeft' | key == 'ArrowRight' & completed == false) {
       (key == arrowTests[i].correct_keycode) ? score ++ : score + 0;
+      console.log(score)
+      console.log(key)
+      console.log(completed)
       if( i <= 6 ) {
         i ++;
-      $('.test-img').attr('src', arrowTests[i].img_link)
+        console.log(i)
+        $('.test-img').attr('src', arrowTests[i].img_link)
       } else {
+        console.log(completed)
         setCompleted(true)
       }
     } 
   });
-
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
 
   return (
@@ -103,16 +86,7 @@ export default function App() {
           <img className='test-img' src={arrowTests[i].img_link} />
       </div>
       <RxCross2 className="icon" size="40px" color="#5441E1" style={{position: 'absolute', top: "40px", right: "20px"}}/>
-      <div className='result-screen'>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Score Modal"
-        >
-          <button onClick={closeModal}>close</button>
-        </Modal>
-      </div>
+      <Popup className='popup' open={false} modal> <span> Modal content </span></Popup>
     </div>
   )
 }
