@@ -18,8 +18,9 @@
   border-radius: 5px;
   border: 5px solid #5441e1;
   width: 50%;
-  height: 50%;
+  height: 530px;
   margin: auto 25%;
+  margin-top: 140px;
 }
 
 .info-message {
