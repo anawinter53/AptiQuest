@@ -97,12 +97,13 @@ export default function App() {
     } 
   });
 
-  useEffect(() => {
-    console.log(completed)
-    if (completed == true) {
-      $('.popup').attr('open', true)
-    }
-  }, [completed])
+  // useEffect(() => {
+  //   console.log(completed)
+  //   if (completed == true) {
+  //     console.log("the modal should be open")
+  //     $('.popup').attr('open', true)
+  //   }
+  // }, [completed])
 
   
 
@@ -114,7 +115,7 @@ export default function App() {
           <img className='test-img' src={arrowTests[i].img_link} />
       </div>
       <RxCross2 className="icon" size="40px" color="#5441E1" style={{position: 'absolute', top: "40px", right: "20px"}}/>
-      <Popup className='popup' open={false} modal><div> Modal content </div></Popup>
+      <Popup className='popup' open={completed} modal><div> Modal content </div></Popup>
     </div>
   )
 }
