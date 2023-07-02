@@ -48,19 +48,26 @@ export default function App() {
     }
   ]
 
-  let i = 0
+  let i = 1;
 
   window.addEventListener('keydown', function(event) {
     const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
-    console.log(key)
-    i ++;
-    // this.location.reload()
-    $('.test-img').attr('src', arrowTests[i].img_link)
+    if(key == 'ArrowLeft' | key == 'ArrowRight') {
+      console.log(key)
+      if( i < 8 ) {
+        i ++;
+      console.log(i)
+      $('.test-img').attr('src', arrowTests[i].img_link)
+      } else {
+        return i;
+      }
+    }
+    
 });
 
-  useEffect(() => {
-    console.log(i)
-  }, [i])
+  // useEffect(() => {
+  //   console.log(i)
+  // }, [i])
 
 
   return (
