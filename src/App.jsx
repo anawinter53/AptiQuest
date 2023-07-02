@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { AiFillInfoCircle } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+
+  const arrowTests = [
+    {
+      id: 1,
+      img_link: 'src/assets/arrow-test-1.png',
+      correct_keycode: '39'
+    },
+    {
+      id: 2,
+      img_link: 'src/assets/arrow-test-2.png',
+      correct_keycode: '37'
+    },
+    {
+      id: 3,
+      img_link: 'src/assets/arrow-test-3.png',
+      correct_keycode: '39'
+    },
+    {
+      id: 4,
+      img_link: 'src/assets/arrow-test-4.png',
+      correct_keycode: '37'
+    },
+    {
+      id: 5,
+      img_link: 'src/assets/arrow-test-5.png',
+      correct_keycode: '39'
+    },
+    {
+      id: 6,
+      img_link: 'src/assets/arrow-test-6.png',
+      correct_keycode: '37'
+    },
+    {
+      id: 7,
+      img_link: 'src/assets/arrow-test-7.png',
+      correct_keycode: '39'
+    },
+    {
+      id: 8,
+      img_link: 'src/assets/arrow-test-8.png',
+      correct_keycode: '39'
+    }
+  ]
+
+  const i = 0
+
+  window.addEventListener('keydown', function(event) {
+    const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+    console.log(key)
+});
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <AiFillInfoCircle className="icon" size="40px" color="#5441E1" />
+      <div className='test-space'>
+          <img src={arrowTests[i].img_link} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <RxCross2 className="icon" size="40px" color="#5441E1" style={{position: 'absolute', top: "40px", right: "20px"}}/>
+    </div>
   )
 }
 
-export default App
