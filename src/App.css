@@ -1,10 +1,10 @@
 * {
   margin: 0;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .test-space {
-  border: 4px #5441E1 solid;
+  border: 4px #5441e1 solid;
   border-radius: 10px;
   height: 550px;
   margin: 30px;
@@ -13,7 +13,18 @@
 }
 
 .popup-overlay {
-  background: rgba(255, 255, 255, 0.879);
-  border-color: #5441E1;
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #5441e1;
+  border-radius: 5px;
+  border: 5px solid #5441e1;
+  width: 50%;
+  height: 50%;
+  margin: auto 25%;
 }
 
+.info-message {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+}
